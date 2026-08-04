@@ -1,0 +1,48 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:8.3
+    container_name: casksphere-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: casksphere_root_password
+      MYSQL_DATABASE: casksphere_db
+      MYSQL_USER: casksphere_user
+      MYSQL_PASSWORD: casksphere_user_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./src/main/resources/db/migration:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - casksphere-network
+
+  casksphere-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: casksphere-api
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/casksphere_db
+      SPRING_DATASOURCE_USERNAME: casksphere_user
+      SPRING_DATASOURCE_PASSWORD: casksphere_user_password
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - casksphere-network
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  casksphere-network:
+    driver: bridge

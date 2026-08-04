@@ -1,0 +1,39 @@
+# Backend
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.DS_Store
+.idea/
+*.iml
+*.iws
+*.ipr
+*.cls
+*.ctxt
+*.swp
+*.swo
+*~
+.classpath
+.c9/
+.project
+.settings/
+*.sublime-workspace
+*.log
+
+# Frontend
+node_modules/
+dist/
+build/
+.cache/
+.vite/
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.history/
+.vs/
+
+# OS
+.DS_Store
+Thumbs.db
