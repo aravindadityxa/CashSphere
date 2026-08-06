@@ -1,6 +1,6 @@
-package com.casksphere.security;
+package com.cashsphere.security;
 
-import com.casksphere.module.auth.entity.User;
+import com.cashsphere.module.auth.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

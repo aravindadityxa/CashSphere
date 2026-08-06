@@ -1,4 +1,4 @@
-package com.casksphere.config;
+package com.cashsphere.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
@@ -20,7 +20,7 @@ public class OpenApiConfig {
                         .description("Enterprise Treasury & Cash Management Platform API")
                         .contact(new Contact()
                                 .name("CashSphere Support")
-                                .email("support@casksphere.com")))
+                                .email("support@cashsphere.com")))
                 .addSecurityItem(new SecurityRequirement().addList("Bearer Authentication"))
                 .components(new io.swagger.v3.oas.models.Components()
                         .addSecuritySchemes("Bearer Authentication",

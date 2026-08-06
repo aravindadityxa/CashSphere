@@ -1,7 +1,7 @@
-package com.casksphere.module.approval.entity;
+package com.cashsphere.module.approval.entity;
 
-import com.casksphere.module.auth.entity.User;
-import com.casksphere.module.payment.entity.Payment;
+import com.cashsphere.module.auth.entity.User;
+import com.cashsphere.module.payment.entity.Payment;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

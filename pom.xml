@@ -12,8 +12,8 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.casksphere</groupId>
-    <artifactId>casksphere</artifactId>
+    <groupId>com.cashsphere</groupId>
+    <artifactId>cashsphere</artifactId>
     <version>1.0.0</version>
     <name>CashSphere</name>
     <description>Enterprise Treasury & Cash Management Platform</description>

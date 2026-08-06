@@ -1,7 +1,7 @@
-package com.casksphere.module.approval.repository;
+package com.cashsphere.module.approval.repository;
 
-import com.casksphere.module.approval.entity.ApprovalRequest;
-import com.casksphere.module.payment.entity.Payment;
+import com.cashsphere.module.approval.entity.ApprovalRequest;
+import com.cashsphere.module.payment.entity.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

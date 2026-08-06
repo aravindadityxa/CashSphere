@@ -1,7 +1,7 @@
-package com.casksphere.module.audit.repository;
+package com.cashsphere.module.audit.repository;
 
-import com.casksphere.module.audit.entity.AuditLog;
-import com.casksphere.module.auth.entity.User;
+import com.cashsphere.module.audit.entity.AuditLog;
+import com.cashsphere.module.auth.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

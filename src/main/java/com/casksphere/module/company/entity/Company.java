@@ -1,4 +1,4 @@
-package com.casksphere.module.company.entity;
+package com.cashsphere.module.company.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.casksphere.exception;
+package com.cashsphere.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException(String message) {

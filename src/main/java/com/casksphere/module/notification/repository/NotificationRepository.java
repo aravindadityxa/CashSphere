@@ -1,7 +1,7 @@
-package com.casksphere.module.notification.repository;
+package com.cashsphere.module.notification.repository;
 
-import com.casksphere.module.notification.entity.Notification;
-import com.casksphere.module.auth.entity.User;
+import com.cashsphere.module.notification.entity.Notification;
+import com.cashsphere.module.auth.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

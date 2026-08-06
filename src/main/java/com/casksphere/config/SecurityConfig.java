@@ -1,7 +1,7 @@
-package com.casksphere.config;
+package com.cashsphere.config;
 
-import com.casksphere.security.JwtAuthenticationFilter;
-import com.casksphere.security.JwtProvider;
+import com.cashsphere.security.JwtAuthenticationFilter;
+import com.cashsphere.security.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

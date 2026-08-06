@@ -1,7 +1,7 @@
-package com.casksphere.module.payment.repository;
+package com.cashsphere.module.payment.repository;
 
-import com.casksphere.module.payment.entity.Beneficiary;
-import com.casksphere.module.company.entity.Company;
+import com.cashsphere.module.payment.entity.Beneficiary;
+import com.cashsphere.module.company.entity.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

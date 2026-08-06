@@ -1,4 +1,4 @@
-package com.casksphere.module.auth.dto;
+package com.cashsphere.module.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

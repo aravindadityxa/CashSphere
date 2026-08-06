@@ -1,8 +1,8 @@
-package com.casksphere.module.auth.service;
+package com.cashsphere.module.auth.service;
 
-import com.casksphere.module.auth.entity.User;
-import com.casksphere.module.auth.repository.UserRepository;
-import com.casksphere.security.CustomUserPrincipal;
+import com.cashsphere.module.auth.entity.User;
+import com.cashsphere.module.auth.repository.UserRepository;
+import com.cashsphere.security.CustomUserPrincipal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

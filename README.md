@@ -77,7 +77,7 @@
 CashSphere/
 ├── src/
 │   ├── main/
-│   │   ├── java/com/casksphere/
+│   │   ├── java/com/cashsphere/
 │   │   │   ├── CashSphereApplication.java
 │   │   │   ├── controller/              # REST controllers
 │   │   │   ├── security/                # JWT and security
@@ -124,8 +124,8 @@ CashSphere/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/casksphere.git
-cd casksphere
+git clone https://github.com/yourusername/cashsphere.git
+cd cashsphere
 
 # Start all services
 docker-compose up --build
@@ -142,19 +142,22 @@ docker-compose up --build
 
 ```bash
 # Navigate to project root
-cd casksphere
+cd cashsphere
 
-# Create MySQL database
-mysql -u root -p
-> CREATE DATABASE casksphere_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-> CREATE USER 'casksphere_user'@'localhost' IDENTIFIED BY 'casksphere_user_password';
-> GRANT ALL PRIVILEGES ON casksphere_db.* TO 'casksphere_user'@'localhost';
+# Ensure MySQL is running with the correct database
+# The application will auto-create tables using Hibernate
 
 # Build backend
 mvn clean install
 
 # Run backend
 mvn spring-boot:run
+
+# Backend will:
+# - Connect to MySQL on localhost:3306
+# - Use database: cashsphere
+# - Use credentials: root/root
+# - Auto-generate all tables and schemas
 ```
 
 #### Frontend Setup
@@ -261,12 +264,12 @@ npm test
 
 ### Build Docker Image
 ```bash
-docker build -t casksphere:1.0.0 .
+docker build -t cashsphere:1.0.0 .
 ```
 
 ### Run Container
 ```bash
-docker run -p 8080:8080 casksphere:1.0.0
+docker run -p 8080:8080 cashsphere:1.0.0
 ```
 
 ### Using Docker Compose

@@ -1,6 +1,6 @@
-package com.casksphere.module.audit.entity;
+package com.cashsphere.module.audit.entity;
 
-import com.casksphere.module.auth.entity.User;
+import com.cashsphere.module.auth.entity.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

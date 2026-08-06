@@ -1,8 +1,8 @@
 spring:
   application:
-    name: casksphere
+    name: cashsphere
   datasource:
-    url: jdbc:mysql://localhost:3306/casksphere
+    url: jdbc:mysql://localhost:3306/cashsphere
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -36,7 +36,7 @@ server:
 logging:
   level:
     root: INFO
-    com.casksphere: DEBUG
+    com.cashsphere: DEBUG
     org.springframework.security: DEBUG
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE

@@ -1,4 +1,4 @@
-package com.casksphere.module.auth.dto;
+package com.cashsphere.module.auth.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.casksphere.security;
+package com.cashsphere.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

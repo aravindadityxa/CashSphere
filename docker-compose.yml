@@ -3,14 +3,14 @@ version: '3.9'
 services:
   mysql:
     image: mysql:8.3
-    container_name: casksphere-mysql
+    container_name: cashsphere-mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: casksphere
+      MYSQL_DATABASE: cashsphere
     ports:
       - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - cashsphere-data:/var/lib/mysql
       - ./src/main/resources/db/migration:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
@@ -19,16 +19,16 @@ services:
       retries: 5
       start_period: 20s
     networks:
-      - casksphere-network
+      - cashsphere-network
     restart: unless-stopped
 
-  casksphere-api:
+  cashsphere-backend:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: casksphere-api
+    container_name: cashsphere-backend
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/casksphere
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/cashsphere
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
@@ -39,7 +39,7 @@ services:
       mysql:
         condition: service_healthy
     networks:
-      - casksphere-network
+      - cashsphere-network
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
@@ -49,9 +49,9 @@ services:
       start_period: 40s
 
 volumes:
-  mysql_data:
+  cashsphere-data:
     driver: local
 
 networks:
-  casksphere-network:
+  cashsphere-network:
     driver: bridge

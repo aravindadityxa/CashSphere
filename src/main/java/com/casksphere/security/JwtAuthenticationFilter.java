@@ -1,4 +1,4 @@
-package com.casksphere.security;
+package com.cashsphere.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

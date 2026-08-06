@@ -19,7 +19,7 @@ FROM eclipse-temurin:21-jre
 WORKDIR /app
 
 # Copy backend jar
-COPY --from=backend-builder /build/backend/target/casksphere-*.jar app.jar
+COPY --from=backend-builder /build/backend/target/cashsphere-*.jar app.jar
 
 EXPOSE 8080
 

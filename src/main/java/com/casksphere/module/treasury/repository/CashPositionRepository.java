@@ -1,7 +1,7 @@
-package com.casksphere.module.treasury.repository;
+package com.cashsphere.module.treasury.repository;
 
-import com.casksphere.module.treasury.entity.CashPosition;
-import com.casksphere.module.company.entity.Company;
+import com.cashsphere.module.treasury.entity.CashPosition;
+import com.cashsphere.module.company.entity.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

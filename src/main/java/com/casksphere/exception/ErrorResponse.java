@@ -1,4 +1,4 @@
-package com.casksphere.exception;
+package com.cashsphere.exception;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

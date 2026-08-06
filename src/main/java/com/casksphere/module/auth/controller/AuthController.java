@@ -1,7 +1,7 @@
-package com.casksphere.module.auth.controller;
+package com.cashsphere.module.auth.controller;
 
-import com.casksphere.module.auth.dto.*;
-import com.casksphere.module.auth.service.AuthService;
+import com.cashsphere.module.auth.dto.*;
+import com.cashsphere.module.auth.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

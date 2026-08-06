@@ -1,6 +1,6 @@
-package com.casksphere.module.auth.repository;
+package com.cashsphere.module.auth.repository;
 
-import com.casksphere.module.auth.entity.User;
+import com.cashsphere.module.auth.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

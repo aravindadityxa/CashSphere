@@ -1,7 +1,7 @@
-package com.casksphere.module.auth.controller;
+package com.cashsphere.module.auth.controller;
 
-import com.casksphere.module.auth.dto.LoginRequest;
-import com.casksphere.module.auth.dto.RegisterRequest;
+import com.cashsphere.module.auth.dto.LoginRequest;
+import com.cashsphere.module.auth.dto.RegisterRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package com.casksphere.module.treasury.entity;
+package com.cashsphere.module.treasury.entity;
 
-import com.casksphere.module.company.entity.Company;
+import com.cashsphere.module.company.entity.Company;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
