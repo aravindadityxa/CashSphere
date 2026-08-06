@@ -1,0 +1,69 @@
+name: Docker Validation
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'Dockerfile'
+      - 'docker-compose.yml'
+      - '.github/workflows/docker-validate.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'Dockerfile'
+      - 'docker-compose.yml'
+
+jobs:
+  docker-compose-validate:
+    runs-on: ubuntu-latest
+    name: Validate docker-compose.yml
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Validate docker-compose syntax
+      run: |
+        # Install docker-compose if not available
+        if ! command -v docker-compose &> /dev/null; then
+          sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+        fi
+        
+        # Validate
+        docker-compose config > /dev/null
+        echo "✅ docker-compose.yml is valid"
+
+  dockerfile-lint:
+    runs-on: ubuntu-latest
+    name: Lint Dockerfile
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Lint Dockerfile
+      uses: hadolint/hadolint-action@v3.1.0
+      with:
+        dockerfile: Dockerfile
+        ignore: DL3008,DL3009
+      continue-on-error: true
+
+    - name: Basic Dockerfile validation
+      run: |
+        # Check for common issues
+        if ! grep -q "FROM" Dockerfile; then
+          echo "ERROR: Dockerfile missing FROM instruction"
+          exit 1
+        fi
+        
+        if ! grep -q "EXPOSE" Dockerfile; then
+          echo "WARNING: Dockerfile missing EXPOSE instruction"
+        fi
+        
+        if ! grep -q "ENTRYPOINT\|CMD" Dockerfile; then
+          echo "ERROR: Dockerfile missing ENTRYPOINT or CMD"
+          exit 1
+        fi
+        
+        echo "✅ Dockerfile basic validation passed"
