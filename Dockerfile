@@ -21,13 +21,9 @@ WORKDIR /app
 # Copy backend jar
 COPY --from=backend-builder /build/backend/target/casksphere-*.jar app.jar
 
-# Copy frontend dist to static resources
-RUN mkdir -p /app/src/main/resources/static
-COPY --from=frontend-builder /build/frontend/dist /app/src/main/resources/static
-
 EXPOSE 8080
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
-    CMD java -jar app.jar --actuator.health.enabled=true || exit 1
+    CMD curl -f http://localhost:8080/api/health || exit 1
 
 ENTRYPOINT ["java", "-jar", "app.jar"]

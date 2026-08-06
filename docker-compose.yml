@@ -5,17 +5,15 @@ services:
     image: mysql:8.3
     container_name: casksphere-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-casksphere_root_password}
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-casksphere_db}
-      MYSQL_USER: ${MYSQL_USER:-casksphere_user}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-casksphere_user_password}
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: casksphere
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./src/main/resources/db/migration:/docker-entrypoint-initdb.d:ro
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -30,10 +28,10 @@ services:
       dockerfile: Dockerfile
     container_name: casksphere-api
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-casksphere_db}
-      SPRING_DATASOURCE_USERNAME: ${MYSQL_USER:-casksphere_user}
-      SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD:-casksphere_user_password}
-      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/casksphere
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SERVER_PORT: 8080
     ports:
       - "8080:8080"

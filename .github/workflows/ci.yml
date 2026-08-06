@@ -16,9 +16,9 @@ jobs:
         image: mysql:8.3
         env:
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: casksphere_test
+          MYSQL_DATABASE: casksphere
         options: >-
-          --health-cmd="mysqladmin ping -h localhost"
+          --health-cmd="mysqladmin ping -h localhost -uroot -proot"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
@@ -36,9 +36,19 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - name: Wait for MySQL
+      run: |
+        until mysqladmin ping -h127.0.0.1 -uroot -proot; do
+          echo 'waiting for mysql...'
+          sleep 1
+        done
+
     - name: Run full build and verification
       run: mvn clean verify --batch-mode --show-version
       env:
+        SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/casksphere
+        SPRING_DATASOURCE_USERNAME: root
+        SPRING_DATASOURCE_PASSWORD: root
         MAVEN_OPTS: -Dmaven.wagon.http.retryHandler.count=3
 
     - name: Upload backend artifacts
@@ -122,6 +132,9 @@ jobs:
       run: |
         docker images | grep casksphere
         echo "✅ Docker image built successfully"
+
+    - name: Validate docker-compose
+      run: docker-compose config > /dev/null
 
     - name: Login to Docker Hub
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'

@@ -2,13 +2,20 @@ spring:
   application:
     name: casksphere
   datasource:
-    url: jdbc:mysql://localhost:3306/casksphere_db
+    url: jdbc:mysql://localhost:3306/casksphere
     username: root
-    password: casksphere_root_password
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 20000
+      idle-timeout: 300000
+      max-lifetime: 1200000
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
