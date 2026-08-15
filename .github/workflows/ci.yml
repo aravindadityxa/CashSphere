@@ -72,12 +72,11 @@ jobs:
       with:
         node-version: '20'
 
-    - name: Clean npm cache
-      run: npm cache clean --force
-
     - name: Install frontend dependencies
       working-directory: frontend
-      run: npm ci --no-audit --no-fund --registry https://registry.npmjs.org/
+      run: |
+        npm config set cache ${{ runner.temp }}/npm-cache
+        npm ci --no-audit --no-fund
 
     - name: Lint frontend code
       working-directory: frontend
