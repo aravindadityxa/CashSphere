@@ -69,7 +69,6 @@
 ### Infrastructure
 - **Docker** - Containerization
 - **Docker Compose** - Multi-container orchestration
-- **GitHub Actions** - CI/CD pipeline (coming)
 
 ## Project Structure
 
