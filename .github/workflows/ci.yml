@@ -72,10 +72,24 @@ jobs:
       with:
         node-version: '20'
 
+    - name: Diagnose npm configuration
+      working-directory: frontend
+      run: |
+        echo "=== npm version ==="
+        npm --version
+        echo "=== npm registry ==="
+        npm config get registry
+        echo "=== npm config list ==="
+        npm config list
+        echo "=== package-lock.json sha512 sample ==="
+        head -100 package-lock.json | grep -i "sha512" | head -3
+
     - name: Install frontend dependencies
       working-directory: frontend
       run: |
-        npm config set cache ${{ runner.temp }}/npm-cache
+        npm config set cache /tmp/npm-cache-clean
+        rm -rf /tmp/npm-cache-clean
+        mkdir -p /tmp/npm-cache-clean
         npm ci --no-audit --no-fund
 
     - name: Lint frontend code
