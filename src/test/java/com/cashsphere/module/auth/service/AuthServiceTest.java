@@ -135,7 +135,7 @@ class AuthServiceTest {
 
         assertNotNull(response);
         assertEquals("accessToken", response.getAccessToken());
-        verify(userRepository, times(2)).findByEmail("test@example.com");
+        verify(userRepository, times(1)).findByEmail("test@example.com");
     }
 
     @Test
