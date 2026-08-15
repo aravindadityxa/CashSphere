@@ -26,6 +26,7 @@ dist/
 build/
 .cache/
 .vite/
+.env
 .env.local
 .env.*.local
 
